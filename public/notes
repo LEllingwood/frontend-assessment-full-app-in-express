@@ -1,0 +1,44 @@
+first parameter for fetch is the url.  dont' have to put localhost:3000 here because we've already gone there to use the local cite, so anytime we use an /api/user url, it'll automatically go to the base domain.  
+
+second parameter is optional. if you don't pass one, it'll use a default parameter (get).  get request is asking for information. not sending anything.  second parameter are the options.
+
+method is one of the options (string "post"). always use post when you're sending data to put in the server.  in this case it's a user object.  
+
+headers is another option.  the value that we pass into header is a javascript object to you can put multiple headers inside.  you can put the headers javascript object outside the fetch so it doesn't look so confusing.  content type is a header.  doesn't have to be json.  the whole point of this header is to communicate to the server what the data being sent looks like.  good confention to add content type.  don' necessarily have to but this is best practice.  DO IT.  
+
+body is another option.  the body is the  data you're sending.  it always needs to be stringified. stringification can be done outside the fetch request--assigned to a variable and then passed in through this option.  
+
+after you close the options, you do .then.  the only thing you're passing into then is a callback function.  ((response) => {
+    return response.json(),
+    //hydrating the response. takes json we're getting from the network and parse the body as if it was json).  turns json into a javascript string. stringify turns javascript into json.  
+}
+
+fetch("/api/user", {
+    method: "post",
+    headers: "{}",
+    body: json.stringify(js object)
+}
+.then((res) =>{
+    return response.json();
+    //you might also see line 22 as: response.json();. you can use fat arrow with response.json() if your code is only one line.  if it's longer, you'll see people use curlies and return.  
+    if (response.status === 201){
+        sdf
+    }
+    else if { response.status === 409}
+    h
+can do an alert (failed) if the response status is 409.
+    }
+})
+
+in the success case, the user name, email, etc. will be returned.  don't need to do res.json here becuase we dont need it to send back the actual new randomly created id.  the creation happens on the server (app.js) side.  
+
+
+fetch shouldn't provide a page change.
+
+fetch is what is actually giving the function. the function is what's going to happen (in .then) once the fetching is done.  you'll want the console.log inside the .then.
+
+can also do response.status to find the status of the server.  this would be an if statement 
+
+look up mdn Response
+
+if you put parentese after a function, it runs the function immediately.  
